@@ -42,13 +42,22 @@ roslaunch jackal_viz view_robot.launch
 
 ## Initial Setup
 ### Router connection
-* Connect to **JACKALROUTER24** **jackbenimble**
-* **ssh administrator@192.168.0.100** or **ssh administrator@cpr-j100-0076.local** Password: **clearpath**
-* **source remote-jackal.sh**
-* **nmcli connection up JACKALROUTER24**
+* Connect to **JACKALROUTER24**; Password: **jackbenimble**
+```
+nmcli connection up JACKALROUTER24
+```
+* SSH into Jackal
+```
+ssh administrator@192.168.0.100
+ssh administrator@cpr-j100-0076.local
+Password: clearpath
+source remote-jackal.sh
+```
 
 ### Direct wireless connection
-* **nmcli connection up JackalAdHoc**
+```
+nmcli connection up JackalAdHoc
+```
 
 ### PS3 Joystick
 * Plug into the laptop will erase the memory. Reset up required.
@@ -70,4 +79,4 @@ sudo sixad --boot-yes
 
 ### **twist_mux**
 * Assign priorities for different control mode (joystick with highest priority)
-* **params/twist_mux_topics.yaml**
+* Location: **params/twist_mux_topics.yaml**
