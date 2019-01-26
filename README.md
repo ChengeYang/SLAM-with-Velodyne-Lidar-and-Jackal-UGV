@@ -1,7 +1,6 @@
 # Jackal SLAM
 Winter Project, Northwestern University
 
-
 ## Introduction
 
 
@@ -39,3 +38,36 @@ roslaunch jackal_gazebo jackal_world.launch config:=front_laser
 roslaunch jackal_viz view_robot.launch
 ```
 * Drive the Jackal: send message type **geometry_msgs/Twist** to topic **cmd_vel**.
+
+
+## Initial Setup
+### Router connection
+* Connect to **JACKALROUTER24** **jackbenimble**
+* **ssh administrator@192.168.0.100** or **ssh administrator@cpr-j100-0076.local** Password: **clearpath**
+* **source remote-jackal.sh**
+* **nmcli connection up JACKALROUTER24**
+
+### Direct wireless connection
+* **nmcli connection up JackalAdHoc**
+
+### PS3 Joystick
+* Plug into the laptop will erase the memory. Reset up required.
+* Connect the joystick to the Jackal through USB
+* SSH into jackal
+* Run
+```
+sudo sixpair
+sudo sixad --boot-yes
+```
+* Unplug the joystick, long hold the playstation button
+
+### Files on Jackal
+* **catkin_ws** workspace for Nate
+* **jackal_ws** workspace for Michael
+* **/etc/ros/indigo/ros.d/** certain launch file to run when hitting the red button
+* **nu_jackal_autonav_startup.launch** write launch packages in this file if you want it to be launched every time you stitch on the robot. (Now Velodyne is launched)
+* **/etc/ros/setup.bash** change ROS workspace
+
+### **twist_mux**
+* Assign priorities for different control mode (joystick with highest priority)
+* **params/twist_mux_topics.yaml**
