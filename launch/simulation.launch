@@ -1,0 +1,18 @@
+<launch>
+
+    <!-- Launch Gazebo with the maze -->
+    <include file="$(find winter_project)/launch/include/jackal_world.launch" />
+
+    <!-- Launch rviz -->
+    <include file="$(find winter_project)/launch/include/view_robot.launch" />
+
+    <!-- Launch gmapping and Move Base-->
+    <!-- <include file="$(find winter_project)/launch/include/gmapping.launch" />
+    <include file="$(find winter_project)/launch/include/move_base.launch" /> -->
+
+    <!-- Launch Twist Mux -->
+    <!-- <include file="$(find winter_project)/launch/include/twist_mux.launch" /> -->
+
+
+
+</launch>

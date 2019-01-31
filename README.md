@@ -51,6 +51,7 @@ nmcli connection up JACKALROUTER24
 ssh administrator@192.168.0.100
 ssh administrator@cpr-j100-0076.local
 Password: clearpath
+cd jackal_ws/src/winter_project/
 source remote-jackal.sh
 ```
 
@@ -75,7 +76,7 @@ sudo sixad --boot-yes
 * **jackal_ws** workspace for Michael
 * **/etc/ros/indigo/ros.d/** certain launch file to run when hitting the red button
 * **nu_jackal_autonav_startup.launch** write launch packages in this file if you want it to be launched every time you stitch on the robot. (Now Velodyne is launched)
-* **/etc/ros/setup.bash** change ROS workspace
+* **/etc/ros/setup.bash** change ROS workspace path
 
 ### **twist_mux**
 * Assign priorities for different control mode (joystick with highest priority)
