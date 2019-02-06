@@ -3,15 +3,18 @@
 
   <node name="controller_spawner" pkg="controller_manager" type="spawner"
         args="jackal_joint_publisher jackal_velocity_controller" />
-  
-  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization"> 
+
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
     <rosparam command="load" file="$(find jackal_control)/config/robot_localization.yaml" />
   </node>
 
-  <node pkg="twist_mux" type="twist_mux" name="twist_mux">
-    <rosparam command="load" file="$(find jackal_control)/config/twist_mux.yaml" />
+  <!-- The twist_mux is added by the Jackal developer in recent commits -->
+  <!-- <node pkg="twist_mux" type="twist_mux" name="twist_mux">
+    <rosparam command="load" file="$(find winter_project)/config/twist_mux.yaml" />
     <remap from="cmd_vel_out" to="jackal_velocity_controller/cmd_vel"/>
-  </node>
+  </node> -->
+
+  <node pkg="topic_tools" type="relay" name="cmd_vel_relay"
+        args="cmd_vel/mux jackal_velocity_controller/cmd_vel" />
 
 </launch>
-

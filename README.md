@@ -37,7 +37,7 @@ roslaunch jackal_gazebo jackal_world.launch config:=front_laser
 ```
 roslaunch jackal_viz view_robot.launch
 ```
-* Drive the Jackal: send message type **geometry_msgs/Twist** to topic **cmd_vel**.
+* Drive the Jackal: send message type **/geometry_msgs/Twist** to topic **cmd_vel**.
 
 
 ## Initial Setup
@@ -75,9 +75,9 @@ sudo sixad --boot-yes
 * **catkin_ws** workspace for Nate
 * **jackal_ws** workspace for Michael
 * **/etc/ros/indigo/ros.d/** certain launch file to run when hitting the red button
-* **nu_jackal_autonav_startup.launch** write launch packages in this file if you want it to be launched every time you stitch on the robot. (Now Velodyne is launched)
+* **nu_jackal_autonav_startup.launch** write launch packages in this file if you want it to be launched every time you stitch on the robot. (Now Velodyne is launched, the machine vision camera is not)
 * **/etc/ros/setup.bash** change ROS workspace path
 
 ### **twist_mux**
 * Assign priorities for different control mode (joystick with highest priority)
-* Location: **params/twist_mux_topics.yaml**
+* Location: **/config/twist_mux_topics.yaml**
