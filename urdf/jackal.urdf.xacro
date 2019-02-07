@@ -249,6 +249,12 @@
   <!-- Optional standard accessories, including their simulation data. The rendering of these into the final description is controlled by optenv variables, which default each one to off.-->
   <xacro:include filename="$(find jackal_description)/urdf/accessories.urdf.xacro" />
 
+  <!-- Velodyne URDF, plugin, etc -->
+  <xacro:include filename="$(find winter_project)/urdf/VLP-16.urdf.xacro"/>
+  <VLP-16 parent="front_mount" name="velodyne" topic="/velodyne_points">
+    <origin xyz="0 0 0.052" rpy="0 0 0" />
+  </VLP-16>
+
   <!-- Velodyne mount stuff -->
   <link name="velodyne_mount">
     <visual>
