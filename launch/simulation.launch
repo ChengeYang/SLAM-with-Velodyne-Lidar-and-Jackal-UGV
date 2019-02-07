@@ -7,10 +7,10 @@
     <include file="$(find winter_project)/launch/include/view_robot.launch" />
 
     <!-- Launch gmapping and Move Base for SLAM and navigation -->
-    <include file="$(find winter_project)/launch/include/gmapping.launch" />
-    <include file="$(find winter_project)/launch/include/move_base.launch" />
+    <!-- <include file="$(find winter_project)/launch/include/gmapping.launch" />
+    <include file="$(find winter_project)/launch/include/move_base.launch" /> -->
 
     <!-- Launch Twist Mux for controlling -->
-    <include file="$(find winter_project)/launch/include/twist_mux.launch" />
+    <!-- <include file="$(find winter_project)/launch/include/twist_mux.launch" /> -->
 
 </launch>

@@ -7,7 +7,7 @@ Winter Project, Northwestern University
 ## Dependencies
 The Jackal UGV packages are released in ROS Indigo and Kinetic. To use them in ROS Melodic, the following compiling processes are implemented:
 
-#### Build from apt-get install:
+#### Build from apt-get:
 Install in Terminal with **sudo apt-get install**:
 * ros-melodic-velodyne
 * ros-melodic-velodyne-description
@@ -81,3 +81,8 @@ sudo sixad --boot-yes
 ### **twist_mux**
 * Assign priorities for different control mode (joystick with highest priority)
 * Location: **/config/twist_mux_topics.yaml**
+
+### IMU issues
+* **/jackal_control/config/control.yaml**
+* **/jackal_control/config/robot_localization.yaml**
+* **/robot_localization/params/ekf_template.yaml**
