@@ -246,10 +246,27 @@
   <!-- Bring in simulation data for Gazebo. -->
   <xacro:include filename="$(find jackal_description)/urdf/jackal.gazebo" />
 
-  <!-- Optional standard accessories, including their simulation data. The rendering
-       of these into the final description is controlled by optenv variables, which
-       default each one to off.-->
+  <!-- Optional standard accessories, including their simulation data. The rendering of these into the final description is controlled by optenv variables, which default each one to off.-->
   <xacro:include filename="$(find jackal_description)/urdf/accessories.urdf.xacro" />
+
+  <!-- Velodyne mount stuff -->
+  <link name="velodyne_mount">
+    <visual>
+      <origin xyz="0 0 0" rpy="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="package://jackal_exploration/urdf/velodyne_mount.stl"/>
+      </geometry>
+      <material name="aluminum" >
+        <color rgba="0.45 0.45 0.45 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="velodyne_mount_joint" type="fixed">
+    <parent link="velodyne_base_link" />
+    <child link="velodyne_mount" />
+    <origin xyz="0 0 0" />
+  </joint>
 
   <!-- Optional custom includes. -->
   <xacro:include filename="$(optenv JACKAL_URDF_EXTRAS empty.urdf)" />
