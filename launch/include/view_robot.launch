@@ -1,5 +1,5 @@
 <launch>
   <param name="use_gui" value="true"/>
-  <arg name="config" default="robot" />
+  <arg name="config" default="jackal" />
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find winter_project)/rviz/$(arg config).rviz" />
 </launch>
