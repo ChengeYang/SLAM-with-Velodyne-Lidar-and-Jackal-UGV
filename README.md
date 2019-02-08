@@ -71,11 +71,13 @@ sudo sixad --boot-yes
 ```
 * Unplug the joystick, long hold the playstation button
 
+
+## Implementation
 ### Files on Jackal
 * **catkin_ws** workspace for Nate
 * **jackal_ws** workspace for Michael
 * **/etc/ros/indigo/ros.d/** certain launch file to run when hitting the red button
-* **nu_jackal_autonav_startup.launch** write launch packages in this file if you want it to be launched every time you stitch on the robot. (Now Velodyne is launched, the machine vision camera is not)
+* **nu_jackal_autonav_startup.launch** write launch packages in this file if you want it to be launched every time you switch on the robot. (Now Velodyne is launched while the machine vision camera is not)
 * **/etc/ros/setup.bash** change ROS workspace path
 
 ### **twist_mux**
@@ -83,6 +85,7 @@ sudo sixad --boot-yes
 * Location: **/config/twist_mux_topics.yaml**
 
 ### IMU issues
+The Jackal is drifting in Gazebo when running in real world. The problem can be solved by changing the parameters for Kalman Filter in the following files.
 * **/jackal_control/config/control.yaml**
 * **/jackal_control/config/robot_localization.yaml**
 * **/robot_localization/params/ekf_template.yaml**

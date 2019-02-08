@@ -21,8 +21,8 @@ topics:
   topic   : key_vel
   timeout : 0.5
   priority: 90
--
-  name    : tablet
-  topic   : tab_vel
-  timeout : 0.5
-  priority: 100
+
+- name    : interactive_marker
+  topic   : twist_marker_server/cmd_vel
+  timeout : 1.0
+  priority: 80

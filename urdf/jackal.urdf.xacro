@@ -260,7 +260,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0.0 0.0 0.0" />
       <geometry>
-        <mesh filename="package://jackal_exploration/urdf/velodyne_mount.stl"/>
+        <mesh filename="package://winter_project/urdf/velodyne_mount.stl"/>
       </geometry>
       <material name="aluminum" >
         <color rgba="0.45 0.45 0.45 1"/>
