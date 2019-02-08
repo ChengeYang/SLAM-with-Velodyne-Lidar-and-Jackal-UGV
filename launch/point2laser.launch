@@ -1,0 +1,32 @@
+<launch>
+
+<node pkg="tf" type="static_transform_publisher" name="velodyne_to_front_laser" args="0 0 0 0 0 0 /velodyne /front_laser 100" />
+
+<node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan">
+
+  <remap from="cloud_in" to="/velodyne_points/voxeled"/>
+  <remap from="scan" to="/front/scan/"/>
+  <rosparam>
+      transform_tolerance: 0.01
+      min_height: -5.0
+      max_height: 5.0
+
+      angle_min: -3.1415
+      angle_max: 3.1415
+      angle_increment: 0.01
+      scan_time: 0.1
+      range_min: 0.0
+      range_max: 10.0
+      use_inf: true
+      concurrency_level: 0
+  </rosparam>
+
+</node>
+
+<!-- <node pkg="laser_filters" type="scan_to_scan_filter_chain" output="screen" name="laser_filter">
+    <rosparam command="load" file="$(find laser_filters)/examples/range_filter_velodyne.yaml" />
+    <remap from="scan" to="/scan/laser"/>
+    <remap from="scan_filtered" to="/front/scan"/>
+  </node> -->
+
+</launch>

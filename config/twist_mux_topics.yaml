@@ -8,7 +8,7 @@
 topics:
 -
   name    : navigation
-  topic   : nav_vel
+  topic   : cmd_vel/nav
   timeout : 0.5
   priority: 10
 -

@@ -1,0 +1,36 @@
+<launch>
+  <node pkg="nodelet" type="nodelet" name="pcl_manager" args="manager" output="screen" />
+
+<!-- filter out points too high, too low, or too far away -->
+  <node pkg="nodelet" type="nodelet" name="cropbox" args="load pcl/CropBox pcl_manager" output="screen">
+    <remap from="~input" to="/velodyne_points" />
+    <remap from="~output" to="/velodyne_points/cropbox" />
+    <rosparam>
+      <!-- input_frame: base_link
+      output_frame: velodyne -->
+      min_x: -10.0
+      max_x: 10.0
+      min_y: -10.0
+      max_y: 10.0
+      min_z: -0.32
+      max_z: 0.112
+    </rosparam>
+  </node>
+
+
+  <!-- Run a VoxelGrid filter to clean NaNs and downsample the data -->
+  <node pkg="nodelet" type="nodelet" name="voxel_grid" args="load pcl/VoxelGrid pcl_manager" output="screen">
+    <remap from="~input" to="/velodyne_points/cropbox" />
+    <remap from="~output" to="/velodyne_points/voxeled" />
+    <rosparam>
+      filter_field_name: z
+      filter_limit_min: -0.32
+      filter_limit_max: 0.112
+      filter_limit_negative: False
+      leaf_size: 0.025
+    </rosparam>
+  </node>
+
+  <!-- custom node to filter out groundplane -->
+  <!-- <node pkg="jackal_exploration" type="conical_filter" name="conical_filter" output="screen" /> -->
+</launch>

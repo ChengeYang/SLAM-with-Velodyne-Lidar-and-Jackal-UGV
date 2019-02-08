@@ -89,3 +89,6 @@ The Jackal is drifting in Gazebo when running in real world. The problem can be 
 * **/jackal_control/config/control.yaml**
 * **/jackal_control/config/robot_localization.yaml**
 * **/robot_localization/params/ekf_template.yaml**
+
+### Velodyne Lidar
+* **VLP-16.urdf.xacro** change the param **samples** at the beginning of the file from 1875 to 200. This will significantly improve the efficiency of the package in rviz.
