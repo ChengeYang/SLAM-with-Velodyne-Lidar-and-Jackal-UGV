@@ -15,6 +15,7 @@ Install in Terminal with **sudo apt-get install**:
 * ros-melodic-geographic-info
 * ros-melodic-robot-localization
 * ros-melodic-twist-mux
+* ros-melodic-pointcloud-to-laserscan
 
 #### Build from source: (version: kinetic)
 Git clone the original Github repo to local catkin workspace, and run **catkin_make**.
@@ -91,4 +92,4 @@ The Jackal is drifting in Gazebo when running in real world. The problem can be 
 * **/robot_localization/params/ekf_template.yaml**
 
 ### Velodyne Lidar
-* **VLP-16.urdf.xacro** change the param **samples** at the beginning of the file from 1875 to 200. This will significantly improve the efficiency of the package in rviz.
+* **VLP-16.urdf.xacro** change the param **samples** at the beginning of the file from 1875 to 100. This will significantly improve the efficiency of the package in rviz.

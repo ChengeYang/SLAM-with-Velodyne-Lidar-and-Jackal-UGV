@@ -14,7 +14,6 @@
     <include file="$(find winter_project)/launch/include/move_base.launch" />
 
     <!-- Launch Point Cloud tools to filter the original Velodyne data and feed into gmapping -->
-    <include file="$(find winter_project)/launch/point2laser.launch" />
-    <include file="$(find winter_project)/launch/pointcloud_filter.launch" />
+    <include file="$(find winter_project)/launch/include/pointcloud_filter.launch" />
 
 </launch>

@@ -1,22 +1,30 @@
-#Configuation for robot odometry EKF
-#
+# Configuation for robot odometry EKF
+# The template for this file is located at: /robot_localization/params/ekf_template.yaml
 frequency: 50
 
+# Odometry enabled parameters
+# odom0_config: x, y, z, roll, pitch, yaw, vx, vy, vz, vroll, vpitch, vyaw, ax, ay, az
+# odom0_relative: When the node starts, if this parameter is true, then the first measurement is treated as a "zero point"
 odom0: /jackal_velocity_controller/odom
 odom0_config: [false, false, false,
                false, false, false,
-               true, true, true,
+               true, true, false,
                false, false, true,
                false, false, false]
 odom0_differential: false
+odom0_relative: true
 
+# IMU enabled parameters
+# imu0_config: x, y, z, roll, pitch, yaw, vx, vy, vz, vroll, vpitch, vyaw, ax, ay, az
+# imu0_relative: When the node starts, if this parameter is true, then the first measurement is treated as a "zero point"
 imu0: /imu/data
 imu0_config: [false, false, false,
-              true, true, true,
+              false, false, true,
               false, false, false,
-              true, true, true,
+              false, false, true,
               false, false, false]
 imu0_differential: false
+imu0_relative: true
 
 odom_frame: odom
 base_link_frame: base_link
