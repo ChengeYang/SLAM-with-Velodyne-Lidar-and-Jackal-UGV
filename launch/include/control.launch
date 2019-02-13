@@ -1,5 +1,5 @@
 <launch>
-  <rosparam command="load" file="$(find winter_project)/config/control.yaml" />
+  <rosparam command="load" file="$(find jackal_control)/config/control.yaml" />
 
   <node name="controller_spawner" pkg="controller_manager" type="spawner"
         args="jackal_joint_publisher jackal_velocity_controller" />
