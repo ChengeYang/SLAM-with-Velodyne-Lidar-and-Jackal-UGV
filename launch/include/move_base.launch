@@ -15,6 +15,9 @@
     <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/>
 
     <remap from="odom" to="odometry/filtered" />
+
+    <!-- Remap to the topic corresponding to twist_mux_topics.yaml -->
+    <remap from="cmd_vel" to="cmd_vel/nav_vel" />
   </node>
 
 </launch>

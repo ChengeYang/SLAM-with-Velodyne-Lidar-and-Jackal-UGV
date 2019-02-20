@@ -8,17 +8,17 @@
 topics:
 -
   name    : navigation
-  topic   : cmd_vel/nav
+  topic   : cmd_vel/nav_vel
   timeout : 0.5
   priority: 10
 -
   name    : joystick
-  topic   : joy_vel
+  topic   : cmd_vel/joy_vel
   timeout : 0.5
   priority: 100
 -
   name    : keyboard
-  topic   : key_vel
+  topic   : cmd_vel/key_vel
   timeout : 0.5
   priority: 90
 
