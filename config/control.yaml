@@ -38,7 +38,7 @@ jackal_velocity_controller:
       max_acceleration       : 25.0   # rad/s^2
 
 # Added as the PID controller for the four wheels of Jackal
-# Attemped to solve the "no p gain specified for pid", but the p gain will ruin the robot's movement
+# Attemped to solve the "no p gain specified for pid" error, but this will cause the big problem in rviz
 # gazebo_ros_control:
 #     pid_gains:
 #         front_left_wheel:
