@@ -30,15 +30,10 @@ Git clone the original Github repo to local catkin workspace, and run **catkin_m
 
 
 ## Basic Usage
-* Launch Gazebo with front_laser config:
+* Launch in simulation:
 ```
-roslaunch jackal_gazebo jackal_world.launch config:=front_laser
+roslaunch winter_project simulation.launch
 ```
-* Launch rviz to control the Jackal in Gazebo:
-```
-roslaunch jackal_viz view_robot.launch
-```
-* Drive the Jackal: send message type **/geometry_msgs/Twist** to topic **cmd_vel**.
 
 
 ## Initial Setup
