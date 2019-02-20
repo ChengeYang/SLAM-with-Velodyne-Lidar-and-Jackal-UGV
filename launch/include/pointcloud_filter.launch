@@ -19,20 +19,20 @@
     </node>
 
     <!-- get rid of pesky noise using radius outlier filter -->
-    <node pkg="nodelet" type="nodelet" name="radius_outlier_removal" args="load pcl/RadiusOutlierRemoval pcl_manager" output="screen">
+    <!-- <node pkg="nodelet" type="nodelet" name="radius_outlier_removal" args="load pcl/RadiusOutlierRemoval pcl_manager" output="screen">
         <remap from="~input" to="/velodyne_points/cropbox" />
         <remap from="~output" to="/velodyne_points/no_outliers" />
-        <rosparam>
+        <rosparam> -->
             <!-- Neighbor area to check points -->
             <!-- Keep points with neighbor points larger than this number -->
-            radius_search: 0.05
-            min_neighbors: 5
+            <!-- radius_search: 1.00
+            min_neighbors: 1
     </rosparam>
-  </node>
+  </node> -->
 
     <!-- Voxel downsampling to produce a less dense point cloud -->
     <node pkg="nodelet" type="nodelet" name="voxel_grid" args="load pcl/VoxelGrid pcl_manager" output="screen">
-        <remap from="~input" to="/velodyne_points/no_outliers" />
+        <remap from="~input" to="/velodyne_points/cropbox" />
         <remap from="~output" to="/velodyne_points/voxelgrid" />
         <rosparam>
             filter_field_name: z

@@ -25,7 +25,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: ""
+    SyncSource: PointCloud2
 Preferences:
   PromptSaveOnExit: true
 Visualization Manager:
@@ -203,10 +203,10 @@ Visualization Manager:
       Color: 255; 255; 255
       Color Transformer: Intensity
       Decay Time: 0
-      Enabled: false
+      Enabled: true
       Invert Rainbow: false
       Max Color: 255; 255; 255
-      Max Intensity: 15
+      Max Intensity: 11
       Min Color: 0; 0; 0
       Min Intensity: 0
       Name: PointCloud2
@@ -216,11 +216,11 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.05000000074505806
       Style: Flat Squares
-      Topic: /velodyne_points
+      Topic: /velodyne_points/voxelgrid
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
-      Value: false
+      Value: true
     - Alpha: 1
       Buffer Length: 1
       Class: rviz/Path
@@ -292,25 +292,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 19.951478958129883
+      Distance: 15.450424194335938
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.2030598223209381
-        Y: -0.1085740253329277
-        Z: 0.3807830512523651
+        X: -0.21648570895195007
+        Y: 0.14340223371982574
+        Z: 0.019869323819875717
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5947968363761902
+      Pitch: 0.8397966027259827
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.155001640319824
+      Yaw: 3.1400017738342285
     Saved: ~
 Window Geometry:
   Displays:
