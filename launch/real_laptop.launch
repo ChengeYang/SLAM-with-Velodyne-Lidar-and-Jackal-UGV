@@ -1,0 +1,14 @@
+<launch>
+
+    <!-- Launch rviz -->
+    <param name="use_gui" value="true"/>
+    <arg name="config" default="real" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find winter_project)/rviz/$(arg config).rviz" />
+
+    <!-- Pointcloud filter: cropbox, outlier removal, downsampling -->
+    <node name="pointcloud_filter" pkg="winter_project" type="pointcloud_filter" output="screen" />
+
+    <!-- Launch Point Cloud tools to filter the original Velodyne data and feed into gmapping -->
+    <!-- <include file="$(find winter_project)/launch/include/pointcloud_filter.launch" /> -->
+
+</launch>

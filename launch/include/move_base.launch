@@ -17,7 +17,7 @@
     <remap from="odom" to="odometry/filtered" />
 
     <!-- Remap to the topic corresponding to twist_mux_topics.yaml -->
-    <remap from="cmd_vel" to="cmd_vel/nav_vel" />
+    <remap from="cmd_vel" to="cmd_vel/nav" />
   </node>
 
 </launch>

@@ -2,19 +2,22 @@ cmake_minimum_required(VERSION 2.8.3)
 project(winter_project)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  pcl_ros
+  sensor_msgs
   roscpp
   rospy
   std_msgs
 )
 
 ## System dependencies are found with CMake's conventions
-# find_package(Boost REQUIRED COMPONENTS system)
+find_package(Boost REQUIRED COMPONENTS system)
+find_package(PCL REQUIRED)
 
 
 ## Uncomment this if the package has a setup.py. This macro ensures
@@ -197,3 +200,11 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+
+# Added for source code
+include_directories(include${PCL_INCLUDE_DIRS})
+link_directories(${PCL_LIBRARY_DIRS})
+
+add_executable(pointcloud_filter src/pointcloud_filter.cpp)
+target_link_libraries(pointcloud_filter ${catkin_LIBRARIES} ${PCL_LIBRARIES})

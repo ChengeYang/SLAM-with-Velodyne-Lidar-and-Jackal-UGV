@@ -67,6 +67,11 @@ sudo sixad --boot-yes
 ```
 * Unplug the joystick, long hold the playstation button
 
+### Copy file into Jackal
+```
+scp -r "dir in laptop" administrator@cpr-j100-0076.local:"dir in jackal"
+```
+
 
 ## Implementation
 ### Files on Jackal
@@ -86,5 +91,6 @@ The Jackal is drifting in Gazebo when running in real world. The problem can be 
 * **/jackal_control/config/robot_localization.yaml**
 * **/robot_localization/params/ekf_template.yaml**
 
-### Velodyne Lidar
-* **VLP-16.urdf.xacro** change the param **samples** at the beginning of the file from 1875 to 100. This will significantly improve the efficiency of the package in rviz.
+### Velodyne Lidar issues
+* **VLP-16.urdf.xacro** configuration file for the Velodyne VLP16 Lidar in simulation. Change the param **samples** at the beginning of the file from 1875 to 200. This will significantly improve the efficiency of the package in rviz.
+* **~/jackal_ws/src/velodyne/velodyne_pointcloud/launch/VLP16_points.launch** configuration file in Jackal for the **velodyne_pointcloud** package that transforms the raw Lidar data to ROS message **sensor_msgs::PointCloud2**. Change the param **rpm** from 600 to 300. This reduces the publish frequency of topic **/velodyne_points**, thus allows the Velodyne VLP16 to sample the surrounding environment for all 360 degrees. This setting solves the issue in rviz that the pointcloud is blinking all the time while each frame contains incomplete surrounding information.
