@@ -30,6 +30,7 @@ void cloud_cb(sensor_msgs::PointCloud2 raw_ros)
 {
     // Convert PointCloud2 to pcl::PointXYZI
     pcl::fromROSMsg(raw_ros, *cloud_pcl);
+    // std::cerr << cloud_pcl->points.size();
 
     // Point cloud filtering
     cloud_pcl = pointcloud_filter(cloud_pcl);

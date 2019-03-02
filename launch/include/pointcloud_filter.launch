@@ -1,7 +1,49 @@
 <launch>
 
-    <!-- Pointcloud filter: cropbox, outlier removal, downsampling -->
-    <!-- <node name="pointcloud_filter" pkg="winter_project" type="pointcloud_filter" output="screen" /> -->
+    <!-- Launch the nodelet manager for pcl -->
+    <node pkg="nodelet" type="nodelet" name="pcl_manager" args="manager" output="screen" />
+
+    <!-- Passthrough to filter out points outside the CropBox -->
+    <node pkg="nodelet" type="nodelet" name="passthrough" args="load pcl/PassThrough pcl_manager" output="screen">
+        <remap from="~input" to="/velodyne_points" />
+        <remap from="~output" to="/velodyne_points/filtered1" />
+        <rosparam>
+            filter_field_name: z
+            filter_limit_min: -0.28
+            filter_limit_max: 0.10
+            filter_limit_negative: False
+            
+            filter_field_name: x
+            filter_limit_min: -0.45
+            filter_limit_max: 0.00
+            filter_limit_negative: True
+        </rosparam>
+    </node>
+
+    <!-- Get rid of pesky noise using radius outlier filter -->
+    <node pkg="nodelet" type="nodelet" name="radius_outlier_removal" args="load pcl/RadiusOutlierRemoval pcl_manager" output="screen">
+        <remap from="~input" to="/velodyne_points/filtered1" />
+        <remap from="~output" to="/velodyne_points/filtered2" />
+        <rosparam>
+            <!-- Neighbor area to check points -->
+            <!-- Keep points with neighbor points larger than this number -->
+            radius_search: 0.10
+            min_neighbors: 1
+        </rosparam>
+    </node>
+
+    <!-- VoxelGrid downsampling to produce a less dense point cloud -->
+    <node pkg="nodelet" type="nodelet" name="voxel_grid" args="load pcl/VoxelGrid pcl_manager" output="screen">
+        <remap from="~input" to="/velodyne_points/filtered2" />
+        <remap from="~output" to="/velodyne_points/filtered" />
+        <rosparam>
+            filter_field_name: z
+            filter_limit_min: -0.28
+            filter_limit_max: 0.10
+            filter_limit_negative: False
+            leaf_size: 0.05
+        </rosparam>
+    </node>
 
     <node pkg="tf" type="static_transform_publisher" name="velodyne_to_front_laser" args="0 0 0 0 0 0 /velodyne /front_laser 100" />
 
@@ -11,18 +53,18 @@
         <remap from="scan" to="/front/scan"/>
         <rosparam>
             transform_tolerance: 0.01
-            min_height: -5.0
-            max_height: 5.0
+            min_height: -1.0
+            max_height: 1.0
 
-            angle_min: -3.1415
-            angle_max: 3.1415
-            angle_increment: 0.01
+            angle_min: -1.5708
+            angle_max: 1.5708
+            angle_increment: 0.0087
             scan_time: 0.1
-            range_min: 0.0
-            range_max: 10.0
+            range_min: 0.1
+            range_max: 20.0
             use_inf: true
             concurrency_level: 0
         </rosparam>
     </node>
-
+    
 </launch>

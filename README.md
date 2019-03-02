@@ -67,9 +67,10 @@ sudo sixad --boot-yes
 ```
 * Unplug the joystick, long hold the playstation button
 
-### Copy file into Jackal
+### Copy and remove file in Jackal
 ```
-scp -r "dir in laptop" administrator@cpr-j100-0076.local:"dir in jackal"
+scp -r /home/ethan/jackal_ws/src/winter_project/  administrator@cpr-j100-0076.local:~/chenge_ws/src
+sudo rm -r winter_project/
 ```
 
 
