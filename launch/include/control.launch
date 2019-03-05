@@ -16,6 +16,6 @@
 
   <!-- Relay the output topic from twist_mux to the Gazebo topic -->
   <node pkg="topic_tools" type="relay" name="cmd_vel_relay"
-        args="twist_mux/cmd_vel jackal_velocity_controller/cmd_vel" />
+        args="cmd_vel/mux jackal_velocity_controller/cmd_vel" />
 
 </launch>

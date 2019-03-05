@@ -3,7 +3,7 @@
   <arg name="joy_vel_out" default="joy_vel"/>
 
   <!-- The output topic of twist_mux -->
-  <arg name="cmd_vel_out" default="twist_mux/cmd_vel"/>
+  <arg name="cmd_vel_out" default="cmd_vel/mux"/>
 
   <!-- Changed the priority of different types of control method -->
   <arg name="config_locks"  default="$(find winter_project)/config/twist_mux_locks.yaml"/>
