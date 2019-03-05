@@ -45,15 +45,13 @@ nmcli connection up JACKALROUTER24
 * SSH into Jackal
 ```
 ssh administrator@192.168.0.100
-ssh administrator@cpr-j100-0076.local
 Password: clearpath
-cd jackal_ws/src/winter_project/
-source remote-jackal.sh
 ```
 
 ### Direct wireless connection
 ```
-nmcli connection up JackalAdHoc
+nmcli connection up Jackal
+ssh administrator@cpr-j100-0076.local
 ```
 
 ### PS3 Joystick

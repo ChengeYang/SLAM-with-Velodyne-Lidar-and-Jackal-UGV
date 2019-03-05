@@ -15,9 +15,13 @@
 
     <node pkg="joy" type="joy_node" name="joy_node" />
 
-    <node pkg="teleop_twist_joy" type="teleop_node" name="teleop_twist_joy"/>
+    <node pkg="teleop_twist_joy" type="teleop_node" name="teleop_twist_joy">
+        <remap from="cmd_vel" to="/cmd_vel/joy" />
+    </node>
   </group>
 
   <!-- Original output ROS topic: twist_marker_server/cmd_vel -->
-  <node pkg="interactive_marker_twist_server" type="marker_server" name="twist_marker_server"/>
+  <node pkg="interactive_marker_twist_server" type="marker_server" name="twist_marker_server">
+      <remap from="twist_marker_server/cmd_vel" to="/cmd_vel/marker" />
+  </node>
 </launch>

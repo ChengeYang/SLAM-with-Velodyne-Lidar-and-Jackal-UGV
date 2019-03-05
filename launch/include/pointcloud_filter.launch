@@ -6,13 +6,13 @@
     <!-- Passthrough to filter out points outside the CropBox -->
     <node pkg="nodelet" type="nodelet" name="passthrough" args="load pcl/PassThrough pcl_manager" output="screen">
         <remap from="~input" to="/velodyne_points" />
-        <remap from="~output" to="/velodyne_points/filtered1" />
+        <remap from="~output" to="/velodyne_points/passthrough" />
         <rosparam>
             filter_field_name: z
             filter_limit_min: -0.28
             filter_limit_max: 0.10
             filter_limit_negative: False
-            
+
             filter_field_name: x
             filter_limit_min: -0.45
             filter_limit_max: 0.00
@@ -22,8 +22,8 @@
 
     <!-- Get rid of pesky noise using radius outlier filter -->
     <node pkg="nodelet" type="nodelet" name="radius_outlier_removal" args="load pcl/RadiusOutlierRemoval pcl_manager" output="screen">
-        <remap from="~input" to="/velodyne_points/filtered1" />
-        <remap from="~output" to="/velodyne_points/filtered2" />
+        <remap from="~input" to="/velodyne_points/passthrough" />
+        <remap from="~output" to="/velodyne_points/no_outlier" />
         <rosparam>
             <!-- Neighbor area to check points -->
             <!-- Keep points with neighbor points larger than this number -->
@@ -34,7 +34,7 @@
 
     <!-- VoxelGrid downsampling to produce a less dense point cloud -->
     <node pkg="nodelet" type="nodelet" name="voxel_grid" args="load pcl/VoxelGrid pcl_manager" output="screen">
-        <remap from="~input" to="/velodyne_points/filtered2" />
+        <remap from="~input" to="/velodyne_points/no_outlier" />
         <remap from="~output" to="/velodyne_points/filtered" />
         <rosparam>
             filter_field_name: z
@@ -56,8 +56,8 @@
             min_height: -1.0
             max_height: 1.0
 
-            angle_min: -1.5708
-            angle_max: 1.5708
+            angle_min: -3.1416
+            angle_max: 3.1416
             angle_increment: 0.0087
             scan_time: 0.1
             range_min: 0.1
@@ -66,5 +66,5 @@
             concurrency_level: 0
         </rosparam>
     </node>
-    
+
 </launch>
