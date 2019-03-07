@@ -8,10 +8,14 @@ add_compile_options(-std=c++11)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  dynamic_reconfigure
+  pcl_conversions
   pcl_ros
-  sensor_msgs
   roscpp
   rospy
+  geometry_msgs
+  sensor_msgs
+  nav_msgs
   std_msgs
 )
 
@@ -208,3 +212,6 @@ link_directories(${PCL_LIBRARY_DIRS})
 
 add_executable(pointcloud_filter src/pointcloud_filter.cpp)
 target_link_libraries(pointcloud_filter ${catkin_LIBRARIES} ${PCL_LIBRARIES})
+
+# add_executable(pcl_body_tracking src/pcl_body_tracking.cpp)
+# target_link_libraries(pcl_body_tracking ${catkin_LIBRARIES} ${PCL_LIBRARIES})

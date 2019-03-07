@@ -2,9 +2,11 @@
 
     <node name="pcl_body_tracking" pkg="lidar_body_tracking" type="pcl_body_tracking" output="screen">
         <param name="scan_topic" value="/velodyne_points"/>
-        <param name="filtered_topic" value="/tracking/pcl_filtered"/>
-        <param name="clustered_topic" value="/tracking/pcl_clustered"/>
-        <param name="person_topic" value="abcdefg"/>
+        <param name="filtered_topic" value="/tracking/filtered"/>
+        <param name="clustered_topic" value="/tracking/clustered"/>
+        <param name="person_topic" value="/tracking/human"/>
     </node>
+
+    <node name="rqt_reconfigure" pkg="rqt_reconfigure" type="rqt_reconfigure" args="pcl_body_tracking"/>
 
 </launch>

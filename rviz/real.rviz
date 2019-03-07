@@ -5,6 +5,7 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /PointCloud21
+        - /Marker1
       Splitter Ratio: 0.591176450252533
     Tree Height: 699
   - Class: rviz/Selection
@@ -276,10 +277,18 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.05000000074505806
       Style: Flat Squares
-      Topic: /velodyne_points
+      Topic: /tracking/pcl_clustered
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /pcl_body_tracking/visualization_marker
+      Name: Marker
+      Namespaces:
+        cluster: true
+      Queue Size: 100
       Value: true
   Enabled: true
   Global Options:
@@ -306,25 +315,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 15.104692459106445
+      Distance: 12.362265586853027
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 1.3137346506118774
-        Y: -2.4819881916046143
-        Z: 1.6309746503829956
+        X: 0.09306782484054565
+        Y: -1.1164801120758057
+        Z: 0.892245888710022
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.7147971391677856
+      Pitch: 1.014796257019043
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.2668280601501465
+      Yaw: 3.171827793121338
     Saved: ~
 Window Geometry:
   Displays:

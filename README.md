@@ -1,5 +1,5 @@
 # Jackal SLAM
-Winter Project, Northwestern University
+Winter Project at Northwestern University
 
 
 ## Introduction
