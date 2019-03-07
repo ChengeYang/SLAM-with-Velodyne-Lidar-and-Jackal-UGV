@@ -43,9 +43,8 @@ void cloud_cb(sensor_msgs::PointCloud2 raw_ros)
 int main (int argc, char **argv)
 {
     // Initial ROS node, NodeHandle
-    // "~": private namespace
     ros::init(argc, argv, "velodyne_filter");
-    ros::NodeHandle nh("~");
+    ros::NodeHandle nh;
     // Subscrive to raw Velodyne data
     ros::Subscriber sub = nh.subscribe("/velodyne_points", 1, cloud_cb);
     ros::Publisher pub = nh.advertise<sensor_msgs::PointCloud2>("/velodyne_points/filtered", 1);

@@ -4,7 +4,6 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /Grid1
         - /PointCloud21
       Splitter Ratio: 0.591176450252533
     Tree Height: 699
@@ -69,11 +68,30 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        front_fender_link:
+        fenders_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+        front_camera:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_camera_beam:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_camera_mount:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_camera_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         front_left_wheel_link:
           Alpha: 1
           Show Axes: false
@@ -97,11 +115,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
         navsat_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rear_fender_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -263,7 +276,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.05000000074505806
       Style: Flat Squares
-      Topic: /velodyne_points/filtered
+      Topic: /velodyne_points
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
@@ -293,25 +306,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 15.450424194335938
+      Distance: 15.104692459106445
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.21648570895195007
-        Y: 0.14340223371982574
-        Z: 0.019869323819875717
+        X: 1.3137346506118774
+        Y: -2.4819881916046143
+        Z: 1.6309746503829956
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.8397966027259827
+      Pitch: 0.7147971391677856
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.1400017738342285
+      Yaw: 3.2668280601501465
     Saved: ~
 Window Geometry:
   Displays:

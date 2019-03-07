@@ -5,4 +5,6 @@
     <arg name="config" default="real" />
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find winter_project)/rviz/$(arg config).rviz" />
 
+    <!-- <include file="$(find winter_project)/launch/include/lidar_body_tracking.launch" /> -->
+
 </launch>
