@@ -27,15 +27,15 @@ jackal_velocity_controller:
   linear:
     x:
       has_velocity_limits    : true
-      max_velocity           : 2.0   # m/s
+      max_velocity           : 1.0   # m/s
       has_acceleration_limits: true
-      max_acceleration       : 20.0   # m/s^2
+      max_acceleration       : 5.0   # m/s^2
   angular:
     z:
       has_velocity_limits    : true
-      max_velocity           : 4.0   # rad/s
+      max_velocity           : 2.0   # rad/s
       has_acceleration_limits: true
-      max_acceleration       : 25.0   # rad/s^2
+      max_acceleration       : 5.0   # rad/s^2
 
 # Added as the PID controller for the four wheels of Jackal
 # Attemped to solve the "no p gain specified for pid" error, but this will cause the big problem in rviz
