@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(winter_project)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-add_compile_options(-std=c++11)
+## add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -212,5 +212,5 @@ link_directories(${PCL_LIBRARY_DIRS})
 add_executable(pointcloud_filter src/pointcloud_filter.cpp)
 target_link_libraries(pointcloud_filter ${catkin_LIBRARIES} ${PCL_LIBRARIES})
 
-# add_executable(pcl_body_tracking src/pcl_body_tracking.cpp)
-# target_link_libraries(pcl_body_tracking ${catkin_LIBRARIES} ${PCL_LIBRARIES})
+add_executable(floor_removal src/floor_removal.cpp)
+target_link_libraries(floor_removal ${catkin_LIBRARIES} ${PCL_LIBRARIES})

@@ -7,7 +7,7 @@ Winter Project at Northwestern University
 
 
 ## Dependencies
-The Jackal UGV packages are released in ROS Indigo and Kinetic. To use them in ROS Melodic, the following compiling processes are implemented:
+The Jackal packages are released in ROS Indigo and Kinetic. To use them in ROS Melodic, the following compiling processes are implemented:
 
 #### Build from apt-get:
 Install in Terminal with **sudo apt-get install**:
@@ -29,31 +29,38 @@ Git clone the original Github repo to local catkin workspace, and run **catkin_m
 * [interactive_marker_twist_server](http://wiki.ros.org/interactive_marker_twist_server)
 * [gmapping](http://wiki.ros.org/gmapping)
 * [openslam_gmapping](http://wiki.ros.org/openslam_gmapping)
+* [ndt_omp](https://github.com/koide3/ndt_omp)
+* [hdl_localization](https://github.com/koide3/hdl_localization)
+* [hdl_people_tracking](https://github.com/koide3/hdl_people_tracking)
 
 
 ## Usage
-#### Launch in simulation:
+
+### Launch in simulation:
 ```
 roslaunch winter_project simulation.launch
 ```
-#### Launch in Jackal:
+### Launch in Jackal:
 
 * SSH into Jackal, and run:
 ```
 roslaunch winter_project real_jackal.launch
 ```
-* Then change ROS master to Jackal:
+* Open a new Terminal, change ROS master to Jackal and run:
 ```
 export ROS_MASTER_URI=http://CPR-J100-0076.local:11311
 export ROS_HOSTNAME=robostation.local
-```
-* Run:
-```
 roslaunch winter_project real_pc.launch
+```
+### Use rosbag to record data in Jackal
+```
+rosbag record
+scp -r rosbag.bag ethan@robostation.local:~/Downloads
 ```
 
 
 ## Initial Setup
+
 ### Router connection
 * Connect to **JACKALROUTER24**; Password: **jackbenimble**
 ```
@@ -71,9 +78,11 @@ nmcli connection up Jackal
 ssh administrator@cpr-j100-0076.local
 ```
 
-### Copy and remove file in Jackal
+### Copy and remove file to/from Jackal
 ```
 scp -r /home/ethan/jackal_ws/src/winter_project/  administrator@cpr-j100-0076.local:~/chenge_ws/src
+```
+```
 sudo rm -r winter_project/
 ```
 
@@ -90,6 +99,7 @@ sudo sixad --boot-yes
 
 
 ## Implementation
+
 ### Files on Jackal
 * **catkin_ws** workspace for Nate
 * **jackal_ws** workspace for Michael
@@ -119,3 +129,11 @@ The problem is caused by the noise measurements of IMU. The roll and pitch measu
 * **VLP-16.urdf.xacro** configuration file for the Velodyne VLP16 Lidar in simulation. Change the param **samples** at the beginning of the file from 1875 to 200. This will significantly improve the FPS of the package in rviz.
 
 * **~/jackal_ws/src/velodyne/velodyne_pointcloud/launch/VLP16_points.launch** configuration file in Jackal for the **velodyne_pointcloud** package that transforms the raw Lidar data to ROS message **sensor_msgs::PointCloud2**. Change the param **rpm** from 600 to 300. This reduces the publish frequency of topic **/velodyne_points**, thus allows the Velodyne VLP16 to sample the surrounding environment for all 360 degrees. This setting solves the issue in rviz that the pointcloud is blinking all the time while each frame contains incomplete surrounding information.
+
+### PCL library issue in Jackal:
+The PCL used in Jackal is version 1.7. Running the node written with PCL will cause a segmentation fault (core dumped). This is because PCL 1.7 does not support C++11. Therefore, I commented the line in CMakeLists.txt that specifying to compile using C++11. Also, the following commands are used in the debugging process:
+```
+sudo apt update
+sudo apt install gdb
+rosrun --prefix 'gdb --args' winter_project floor_removal
+```

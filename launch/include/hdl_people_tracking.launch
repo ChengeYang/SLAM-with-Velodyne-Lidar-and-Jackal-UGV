@@ -1,11 +1,10 @@
-<?xml version="1.0"?>
 <launch>
   <!-- arguments -->
   <arg name="nodelet_manager" default="velodyne_nodelet_manager" />
 
-  <node pkg="nodelet" type="nodelet" name="hdl_people_detection_nodelet" args="load hdl_people_tracking/HdlPeopleDetectionNodelet $(arg nodelet_manager)">
-    <remap from="odom" to="/odometry/filtered" />
-    <remap from="globalmap" to="/velodyne_points" />
+  <node pkg="nodelet" type="nodelet" name="hdl_people_detection_nodelet" args="load hdl_people_tracking/HdlPeopleDetectionNodelet $(arg nodelet_manager)" output="screen">
+    <!-- <remap from="odom" to="/odometry/filtered" />
+    <remap from="globalmap" to="/velodyne_points" /> -->
 
     <param name="static_sensor" value="true"/>
     <param name="downsample_resolution" value="0.1"/>
@@ -25,7 +24,7 @@
     <param name="enable_classification" value="false"/>
   </node>
 
-  <node pkg="nodelet" type="nodelet" name="hdl_people_tracking_nodelet" args="load hdl_people_tracking/HdlPeopleTrackingNodelet $(arg nodelet_manager)">
+  <node pkg="nodelet" type="nodelet" name="hdl_people_tracking_nodelet" args="load hdl_people_tracking/HdlPeopleTrackingNodelet $(arg nodelet_manager)" output="screen">
     <!-- tracks with larger covariance matrix trace than this value will be removed -->
     <param name="remove_trace_thresh" value="1.0"/>
     <param name="human_radius" value="0.4"/>
