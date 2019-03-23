@@ -4,9 +4,17 @@
 
 -----------------------------------------------------------------------------------------
 ## Results
+### SLAM
+#### 1. Simulation
 <p align = "center">
   <img src = "images/simulation_gazebo.png" height = "240px">
   <img src = "images/simulation_rviz.png" height = "240px">
+</p>
+
+#### 2. In MSR Lab
+<p align = "center">
+  <img src = "images/slam_real.gif" height = "240px">
+  <img src = "images/slam_rviz.gif" height = "240px">
 </p>
 
 -----------------------------------------------------------------------------------------
