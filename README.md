@@ -1,11 +1,24 @@
-# Jackal SLAM
-Winter Project at Northwestern University
+# SLAM and Human Detection with Velodyne Lidar and Jackal UGV
+#### Individual Project, Winter 2019, Northwestern University
+#### Chenge Yang
 
+-----------------------------------------------------------------------------------------
+## Demo
 
+-----------------------------------------------------------------------------------------
 ## Introduction
 
+-----------------------------------------------------------------------------------------
+## Implementation
+<p align = "center">
+  <img src = "images/pipeline.jpeg" height = "240px">
+</p>
 
+### **twist_mux**
+* Assign priorities for different control mode (joystick with highest priority)
+* Location: **/winter_project/config/twist_mux_topics.yaml**
 
+-----------------------------------------------------------------------------------------
 ## Dependencies
 The Jackal packages are released in ROS Indigo and Kinetic. To use them in ROS Melodic, the following compiling processes are implemented:
 
@@ -33,7 +46,7 @@ Git clone the original Github repo to local catkin workspace, and run **catkin_m
 * [hdl_localization](https://github.com/koide3/hdl_localization)
 * [hdl_people_tracking](https://github.com/koide3/hdl_people_tracking)
 
-
+-----------------------------------------------------------------------------------------
 ## Usage
 
 ### Launch in simulation:
@@ -58,8 +71,8 @@ rosbag record
 scp -r rosbag.bag ethan@robostation.local:~/Downloads
 ```
 
-
-## Initial Setup
+-----------------------------------------------------------------------------------------
+## Jackal Setup
 
 ### Router connection
 * Connect to **JACKALROUTER24**; Password: **jackbenimble**
@@ -78,14 +91,6 @@ nmcli connection up Jackal
 ssh administrator@cpr-j100-0076.local
 ```
 
-### Copy and remove file to/from Jackal
-```
-scp -r /home/ethan/jackal_ws/src/winter_project/  administrator@cpr-j100-0076.local:~/chenge_ws/src
-```
-```
-sudo rm -r winter_project/
-```
-
 ### PS3 Joystick
 * Plug into the laptop will erase the memory. Reset up required.
 * Connect the joystick to the Jackal through USB
@@ -97,9 +102,6 @@ sudo sixad --boot-yes
 ```
 * Unplug the joystick, long hold the playstation button
 
-
-## Implementation
-
 ### Files on Jackal
 * **catkin_ws** workspace for Nate
 * **jackal_ws** workspace for Michael
@@ -107,11 +109,15 @@ sudo sixad --boot-yes
 * **/etc/ros/setup.bash** change catkin_make path
 * **/etc/ros/indigo/ros.d/** certain launch file to run when pushing the red button
 
-### **twist_mux**
-* Assign priorities for different control mode (joystick with highest priority)
-* Location: **/winter_project/config/twist_mux_topics.yaml**
+### Copy and remove file to/from Jackal
+```
+scp -r /home/ethan/jackal_ws/src/winter_project/  administrator@cpr-j100-0076.local:~/chenge_ws/src
+```
+```
+sudo rm -r winter_project/
+```
 
-
+-----------------------------------------------------------------------------------------
 ## Main issues solved
 
 ### Z drifting in rviz
