@@ -1,4 +1,4 @@
-# SLAM and Human Detection with Velodyne Lidar and Jackal UGV
+# SLAM and Pedestrian Detection with Velodyne Lidar and Jackal UGV
 #### Individual Project, Winter 2019, Northwestern University
 #### Chenge Yang
 
@@ -17,7 +17,7 @@
   <img src = "images/slam_rviz.gif" height = "240px" style="margin:10px 10px">
 </p>
 
-### Human Detection
+### Pedestrian Detection
 <p align = "center">
   <img src = "images/human_real.gif" height = "300px" style="margin:10px 20px">
   <img src = "images/human_rviz.gif" height = "300px" style="margin:10px 20px">
@@ -25,7 +25,7 @@
 
 -----------------------------------------------------------------------------------------
 ## Introduction
-The goal of this project is to build a mobile robot system in both simulation and real-world environments to achieve SLAM, autonomous navigation and human detection with Velodyne VLP-16 Lidar sensor and Clearpath Jackal UGV.
+The goal of this project is to build a mobile robot system in both simulation and real-world environments to achieve SLAM, autonomous navigation and pedestrian detection with Velodyne VLP-16 Lidar sensor and Clearpath Jackal UGV.
 
 #### Hardware
 * Clearpath Jackal UGV with Ubuntu 14.04 / ROS Indigo
@@ -59,8 +59,8 @@ I used the 2D SLAM package **gmapping**, which implements the Rao-Blackwellized 
 ### Navigation
 I used package **move_base** to achieve autonomous navigation of Jackal. It reads the map and localization from gmapping and plans a local and global path for the robot.
 
-### Human Detection
-I used package **hdl_people_tracking** to achieve human detection and tracking with Velodyne Lidar. It generate semantic segmentation of the human clusters in the PointCloud.
+### Pedestrian Detection
+I used package **hdl_people_tracking** to achieve pedestrian detection and tracking with Velodyne Lidar. It generate semantic segmentation of the human clusters in the PointCloud.
 
 -----------------------------------------------------------------------------------------
 ## Dependencies and Installation
