@@ -3,15 +3,15 @@
 #### Chenge Yang
 
 -----------------------------------------------------------------------------------------
-## Results
-### SLAM
-#### 1. In Simulation (Gazebo)
+## Demo
+
+### SLAM in Simulation (Gazebo)
 <p align = "center">
   <img src = "images/simulation_gazebo.gif" height = "240px" style="margin:10px 50px">
   <img src = "images/simulation_rviz.gif" height = "240px" style="margin:10px 50px">
 </p>
 
-#### 2. In MSR Lab
+### SLAM in MSR Lab
 <p align = "center">
   <img src = "images/slam_real.gif" height = "240px" style="margin:10px 10px">
   <img src = "images/slam_rviz.gif" height = "240px" style="margin:10px 10px">
