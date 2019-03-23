@@ -7,8 +7,8 @@
 ### SLAM
 #### 1. In Simulation (Gazebo)
 <p align = "center">
-  <img src = "images/simulation_gazebo.png" height = "240px" style="margin:10px 50px">
-  <img src = "images/simulation_rviz.png" height = "240px" style="margin:10px 50px">
+  <img src = "images/simulation_gazebo.gif" height = "240px" style="margin:10px 50px">
+  <img src = "images/simulation_rviz.gif" height = "240px" style="margin:10px 50px">
 </p>
 
 #### 2. In MSR Lab
