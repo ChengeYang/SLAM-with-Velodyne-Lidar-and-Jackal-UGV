@@ -40,7 +40,7 @@ Simulation is established for the Jackal and Velodyne VLP-16 Lidar in Gazebo and
 
 #### Pipeline flow
 <p align = "center">
-  <img src = "images/pipeline.jpeg" height = "240px">
+  <img src = "images/pipeline.jpeg" height = "300px">
 </p>
 
 ### State estimation
