@@ -10,16 +10,33 @@
 
 -----------------------------------------------------------------------------------------
 ## Implementation
+
+#### Pipeline flow
 <p align = "center">
   <img src = "images/pipeline.jpeg" height = "240px">
 </p>
 
-### **twist_mux**
-* Assign priorities for different control mode (joystick with highest priority)
-* Location: **/winter_project/config/twist_mux_topics.yaml**
+### State estimation
+The package **robot_localization** is used to fuse Odometry with IMU data through **Extended Kalman Filter**. It estimates the robot state and provides the transformation between tf frames **/odom** and **/base_link**.
+
+### PointCloud processing
+The raw Lidar PointCloud is processed in C++ using PCL library. The following steps are implemented:
+1. Find the floor plane and remove it from the raw PointCloud
+2. Remove all points that are higher than the robot, lower than the ground and too close to the robot
+3. Get rid of noisy points that have no neighbour points within a particular radius
+4. Downsample to obtain a less dense PointCloud
+
+### SLAM
+I used the 2D SLAM package **gmapping**, which implements the Rao-Blackwellized Particle Filter to generate a 2D grip costmap and the the localizaion of the robot in the map (transformation between tf frames **/map** and **/odom**).
+
+### Navigation
+I used package **move_base** to achieve autonomous navigation of Jackal. It reads the map and localization from gmapping and plans a local and global path for the robot.
+
+### Human Detection
+I used package **hdl_people_tracking** to achieve human detection and tracking with Velodyne Lidar. It generate semantic segmentation of the human clusters in the PointCloud.
 
 -----------------------------------------------------------------------------------------
-## Dependencies
+## Dependencies and Installation
 The Jackal packages are released in ROS Indigo and Kinetic. To use them in ROS Melodic, the following compiling processes are implemented:
 
 #### Build from apt-get:
