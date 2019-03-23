@@ -5,16 +5,22 @@
 -----------------------------------------------------------------------------------------
 ## Results
 ### SLAM
-#### 1. Simulation
+#### 1. In Simulation (Gazebo)
 <p align = "center">
-  <img src = "images/simulation_gazebo.png" height = "240px">
-  <img src = "images/simulation_rviz.png" height = "240px">
+  <img src = "images/simulation_gazebo.png" height = "240px" style="margin:10px 50px">
+  <img src = "images/simulation_rviz.png" height = "240px" style="margin:10px 50px">
 </p>
 
 #### 2. In MSR Lab
 <p align = "center">
-  <img src = "images/slam_real.gif" height = "240px">
-  <img src = "images/slam_rviz.gif" height = "240px">
+  <img src = "images/slam_real.gif" height = "240px" style="margin:10px 10px">
+  <img src = "images/slam_rviz.gif" height = "240px" style="margin:10px 10px">
+</p>
+
+### Human Detection
+<p align = "center">
+  <img src = "images/human_real.gif" height = "300px" style="margin:10px 20px">
+  <img src = "images/human_rviz.gif" height = "300px" style="margin:10px 20px">
 </p>
 
 -----------------------------------------------------------------------------------------
