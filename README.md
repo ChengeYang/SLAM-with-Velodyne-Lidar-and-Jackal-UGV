@@ -3,10 +3,23 @@
 #### Chenge Yang
 
 -----------------------------------------------------------------------------------------
-## Demo
+## Results
+<p align = "center">
+  <img src = "images/simulation_gazebo.png" height = "240px">
+  <img src = "images/simulation_rviz.png" height = "240px">
+</p>
 
 -----------------------------------------------------------------------------------------
 ## Introduction
+The goal of this project is to build a mobile robot system in both simulation and real-world environments to achieve SLAM, autonomous navigation and human detection with Velodyne VLP-16 Lidar sensor and Clearpath Jackal UGV.
+
+#### Hardware
+* Clearpath Jackal UGV with Ubuntu 14.04 / ROS Indigo
+* Velodyne VLP-16 Lidar
+* PC with Ubuntu 18.04 / ROS Melodic
+
+#### Simulation
+Simulation is established for the Jackal and Velodyne VLP-16 Lidar in Gazebo and rviz.
 
 -----------------------------------------------------------------------------------------
 ## Implementation
