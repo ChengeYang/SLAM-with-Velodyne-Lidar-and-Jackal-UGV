@@ -38,15 +38,15 @@ Simulation is established for the Jackal and Velodyne VLP-16 Lidar in Gazebo and
 -----------------------------------------------------------------------------------------
 ## Implementation
 
-#### Pipeline flow
+#### Pipeline Flow
 <p align = "center">
   <img src = "images/pipeline.jpeg" height = "300px">
 </p>
 
-### State estimation
+### State Estimation
 The package **robot_localization** is used to fuse Odometry with IMU data through **Extended Kalman Filter**. It estimates the robot state and provides the transformation between tf frames **/odom** and **/base_link**.
 
-### PointCloud processing
+### PointCloud Processing
 The raw Lidar PointCloud is processed in C++ using PCL library. The following steps are implemented:
 1. Find the floor plane and remove it from the raw PointCloud
 2. Remove all points that are higher than the robot, lower than the ground and too close to the robot
@@ -103,7 +103,7 @@ roslaunch winter_project simulation.launch
 ```
 roslaunch winter_project real_jackal.launch
 ```
-* Open a new Terminal, change ROS master to Jackal and run:
+* Open a new Terminal, and run:
 ```
 export ROS_MASTER_URI=http://CPR-J100-0076.local:11311
 export ROS_HOSTNAME=robostation.local
@@ -155,10 +155,10 @@ sudo sixad --boot-yes
 
 ### Copy and remove file to/from Jackal
 ```
-scp -r /home/ethan/jackal_ws/src/winter_project/  administrator@cpr-j100-0076.local:~/chenge_ws/src
-```
-```
 sudo rm -r winter_project/
+```
+```
+scp -r /home/ethan/jackal_ws/src/winter_project/  administrator@cpr-j100-0076.local:~/chenge_ws/src
 ```
 
 -----------------------------------------------------------------------------------------
