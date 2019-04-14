@@ -1,4 +1,4 @@
-# SLAM and Pedestrian Detection with Velodyne Lidar and Jackal UGV
+# SLAM with Velodyne Lidar and Jackal UGV
 #### Individual Project, Winter 2019, Northwestern University
 #### Chenge Yang
 
